@@ -1,0 +1,62 @@
+﻿@model Library_lab_3.Models.Reader
+
+<h1>Add reader</h1>
+
+<form asp-action="Create" method="post">
+
+    <div class="mb-3">
+        <label>Last name</label>
+
+        <input asp-for="LastName"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>First name</label>
+
+        <input asp-for="FirstName"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Middle name</label>
+
+        <input asp-for="MiddleName"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Address</label>
+
+        <input asp-for="Address"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Phone</label>
+
+        <input asp-for="Phone"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Birth Date</label>
+
+        <input asp-for="BirthDate"
+               type="date"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Library Card Number</label>
+
+        <input asp-for="LibraryCardNumber"
+               class="form-control" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-success">
+        Add reader
+    </button>
+
+</form>

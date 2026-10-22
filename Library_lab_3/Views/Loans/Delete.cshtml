@@ -1,0 +1,51 @@
+﻿@model Library_lab_3.Models.Loan
+
+<h1>Delete loan</h1>
+
+<p>
+    Are you sure you want to delete this loan?
+</p>
+
+<p>
+    <strong>Reader:</strong>
+
+    @Model.Reader.LastName
+    @Model.Reader.FirstName
+    @Model.Reader.MiddleName
+</p>
+
+<p>
+    <strong>Book:</strong>
+
+    @Model.Book.Title
+</p>
+
+<p>
+    <strong>Issue Date:</strong>
+
+    @Model.IssueDate.ToShortDateString()
+</p>
+
+<p>
+    <strong>Return Date:</strong>
+
+    @Model.ReturnDate.ToShortDateString()
+</p>
+
+<form asp-action="Delete"
+      method="post">
+
+    <input type="hidden"
+           asp-for="Id" />
+
+    <button type="submit"
+            class="btn btn-danger">
+        Delete
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>

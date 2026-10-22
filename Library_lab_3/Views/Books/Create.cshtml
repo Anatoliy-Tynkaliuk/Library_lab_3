@@ -1,0 +1,86 @@
+﻿@model Library_lab_3.Models.Book
+
+@{
+    var authors =
+        ViewBag.Authors as List<Library_lab_3.Models.Author>;
+}
+
+<h1>Add book</h1>
+
+<form asp-action="Create" method="post">
+
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Title"
+               class="form-label">
+            Title
+        </label>
+
+        <input asp-for="Title"
+               class="form-control" />
+
+        <span asp-validation-for="Title"
+              class="text-danger">
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price"
+               class="form-label">
+            Price
+        </label>
+
+        <input asp-for="Price"
+               class="form-control" />
+
+        <span asp-validation-for="Price"
+              class="text-danger">
+        </span>
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Authors
+        </label>
+
+        <select name="authorIds"
+                class="form-select"
+                multiple
+                size="6">
+
+            @if (authors != null)
+            {
+                @foreach (var author in authors)
+                {
+                    <option value="@author.Id">
+                        @author.LastName
+                        @author.FirstName
+                        @author.MiddleName
+                    </option>
+                }
+            }
+
+        </select>
+
+        <small class="text-muted">
+            To select multiple authors,
+            hold down the Ctrl key.
+        </small>
+
+    </div>
+
+    <button type="submit"
+            class="btn btn-success">
+        Add
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Back
+    </a>
+
+</form>

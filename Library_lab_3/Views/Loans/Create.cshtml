@@ -1,0 +1,97 @@
+﻿@model Library_lab_3.Models.Loan
+
+<h1>Add loan</h1>
+
+<form asp-action="Create" method="post">
+
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger">
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="ReaderId"
+               class="form-label">
+            Reader
+        </label>
+
+        <select asp-for="ReaderId"
+                asp-items="ViewBag.ReaderId"
+                class="form-select">
+
+            <option value="">
+                -- Select Reader --
+            </option>
+
+        </select>
+
+        <span asp-validation-for="ReaderId"
+              class="text-danger">
+        </span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="BookId"
+               class="form-label">
+            Book
+        </label>
+
+        <select asp-for="BookId"
+                asp-items="ViewBag.BookId"
+                class="form-select">
+
+            <option value="">
+                -- Select Book --
+            </option>
+
+        </select>
+
+        <span asp-validation-for="BookId"
+              class="text-danger">
+        </span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="IssueDate"
+               class="form-label">
+            Issue Date
+        </label>
+
+        <input asp-for="IssueDate"
+               type="date"
+               class="form-control" />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="ReturnDate"
+               class="form-label">
+            Return Date
+        </label>
+
+        <input asp-for="ReturnDate"
+               type="date"
+               class="form-control" />
+
+        <span asp-validation-for="ReturnDate"
+              class="text-danger">
+        </span>
+
+    </div>
+
+    <button type="submit"
+            class="btn btn-success">
+        Add
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Back
+    </a>
+
+</form>

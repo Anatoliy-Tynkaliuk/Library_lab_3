@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center mb-5">
+    <h1 class="fw-semibold">LIBRARY SYSTEM</h1>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card main-card h-100">
+
+            <div class="card-body text-center">
+
+                <h4>Readers</h4>
+
+                <a asp-controller="Readers"
+                   asp-action="Index"
+                   class="btn btn-primary">
+
+                    Go to
+
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card main-card h-100">
+
+            <div class="card-body text-center">
+
+                <h4>Authors</h4>
+
+                <a asp-controller="Authors"
+                   asp-action="Index"
+                   class="btn btn-primary">
+
+                    Go to
+
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card main-card h-100">
+
+            <div class="card-body text-center">
+
+                <h4>Books</h4>
+
+                <a asp-controller="Books"
+                   asp-action="Index"
+                   class="btn btn-primary">
+
+                    Go to
+
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card main-card h-100">
+
+            <div class="card-body text-center">
+
+                <h4>Loans</h4>
+
+                <a asp-controller="Loans"
+                   asp-action="Index"
+                   class="btn btn-primary">
+
+                    Go to
+
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Library_lab_3.Models.Author>
+
+@{
+    ViewData["Title"] = "Автори";
+}
+
+<div class="page-header">
+
+    <div>
+        <h2>Authors</h2>
+    </div>
+
+    <a asp-action="Create"
+       class="btn btn-primary">
+        Add author
+    </a>
+
+</div>
+
+<div class="table-container">
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+                <th>Last name</th>
+                <th>First name</th>
+                <th>Middle name</th>
+                <th class="text-center">Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.LastName</td>
+
+                    <td>@item.FirstName</td>
+
+                    <td>@item.MiddleName</td>
+
+                    <td class="actions-cell">
+
+                        <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="btn btn-sm btn-outline-primary">
+                            Edit
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@item.Id"
+                           class="btn btn-sm btn-outline-danger">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

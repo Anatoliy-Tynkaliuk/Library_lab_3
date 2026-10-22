@@ -1,0 +1,86 @@
+﻿@model Library_lab_3.Models.Book
+
+@{
+    var authors =
+        ViewBag.Authors as List<Library_lab_3.Models.Author>;
+
+    var selectedAuthorIds =
+        ViewBag.SelectedAuthorIds as int[]
+        ?? Array.Empty<int>();
+}
+
+<h1>Edit book</h1>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Title"
+               class="form-label">
+            Title
+        </label>
+
+        <input asp-for="Title"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price"
+               class="form-label">
+            Price
+        </label>
+
+        <input asp-for="Price"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Authors
+        </label>
+
+        <select name="authorIds"
+                class="form-select"
+                multiple
+                size="6">
+
+            @if (authors != null)
+            {
+                @foreach (var author in authors)
+                {
+                    if (selectedAuthorIds.Contains(author.Id))
+                    {
+                        <option value="@author.Id" selected>
+                            @author.LastName
+                            @author.FirstName
+                            @author.MiddleName
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="@author.Id">
+                            @author.LastName
+                            @author.FirstName
+                            @author.MiddleName
+                        </option>
+                    }
+                }
+            }
+
+        </select>
+
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Save
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Back
+    </a>
+
+</form>

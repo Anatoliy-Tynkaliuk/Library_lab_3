@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Library_lab_3.Models.Reader>
+
+@{
+    ViewData["Title"] = "Читачі";
+}
+
+<div class="page-header">
+
+    <div>
+        <h2>Readers</h2>
+    </div>
+
+    <a asp-action="Create"
+       class="btn btn-primary">
+        Add reader
+    </a>
+
+</div>
+
+<div class="table-container">
+
+    <div class="table-responsive">
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Birth Date</th>
+                    <th>Library Card</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.LastName</td>
+
+                        <td>@item.FirstName</td>
+
+                        <td>@item.MiddleName</td>
+
+                        <td>@item.Address</td>
+
+                        <td>@item.Phone</td>
+
+                        <td>
+                            @item.BirthDate.ToString("dd.MM.yyyy")
+                        </td>
+
+                        <td>
+                            @item.LibraryCardNumber
+                        </td>
+
+                        <td class="actions-cell">
+
+                            <a asp-action="Edit"
+                               asp-route-id="@item.Id"
+                               class="btn btn-sm btn-outline-primary">
+                                Edit
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@item.Id"
+                               class="btn btn-sm btn-outline-danger">
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
